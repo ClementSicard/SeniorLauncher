@@ -1,0 +1,17 @@
+final Set<String> appNames = {
+  "Paramètres",
+  "WhatsApp",
+  "Messages",
+  "SMS",
+  "QuickSupport",
+  "Settings",
+  "YouTube",
+  "Internet",
+  "Chrome",
+  "Téléphone",
+  "Phone",
+  "Photos",
+  "Gallery",
+  "Skype",
+  "Google Play Store",
+};
