@@ -1,3 +1,4 @@
+import 'package:senior_launcher/models/contact_model.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:senior_launcher/constants/edit_mode.dart';
 import 'package:senior_launcher/models/date_time_model.dart';
@@ -54,18 +55,58 @@ class HomePage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: IconButton(
-                  icon: const Icon(Icons.edit),
-                  onPressed: () =>
-                      openEditDialog(DefaultTabController.of(context).index),
+                  icon: const Text(
+                    'SOS',
+                    style: TextStyle(fontSize: 17),
+                  ),
+                  onPressed: () => showCupertinoModalPopup(
+                      context: context,
+                      builder: (nContext) {
+                        List<Item> urgences = const [
+                          Item('15', 'SAMU', null),
+                          Item('17', 'POLICE', null),
+                          Item('18', 'POMPIERS', null),
+                          Item('112', 'GENERAL', null),
+                        ];
+                        return CupertinoActionSheet(
+                          actions: urgences
+                              .map(
+                                (u) => CupertinoActionSheetAction(
+                                  onPressed: () => Provider.of<ContactModel>(
+                                          context,
+                                          listen: false)
+                                      .callPhoneNumber(u.id),
+                                  child: Text(
+                                    '${u.name} (${u.id})',
+                                    style: const TextStyle(
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                  isDestructiveAction: true,
+                                ),
+                              )
+                              .toList(),
+                          cancelButton: CupertinoActionSheetAction(
+                            isDefaultAction: true,
+                            onPressed: () => Navigator.pop(nContext),
+                            child: const Text('ANNULER'),
+                          ),
+                        );
+                      }),
                 ),
               ),
             ],
             centerTitle: true,
-            title: Consumer<DateTimeModel>(
-              builder: (_, dateTimeModel, __) => AutoSizeText(
-                dateTimeModel.time,
-                maxLines: 1,
-                style: TextStyles.headerTime,
+            title: GestureDetector(
+              onLongPress: () =>
+                  openEditDialog(DefaultTabController.of(context).index),
+              child: Consumer<DateTimeModel>(
+                builder: (_, dateTimeModel, __) => AutoSizeText(
+                  dateTimeModel.time,
+                  maxLines: 1,
+                  style: TextStyles.headerTime,
+                ),
               ),
             ),
             bottom: PreferredSize(
