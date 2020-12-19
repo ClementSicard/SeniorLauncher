@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Elder Launcher',
+        title: 'SeniorLauncher',
         home: DefaultTabController(length: 2, child: HomePage()),
         onGenerateRoute: generateRoute,
         localizationsDelegates: [

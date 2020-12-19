@@ -4,17 +4,17 @@ import 'package:flutter/material.dart';
 var lightTheme = ThemeData(
   primaryColor: Colors.red[400],
   accentColor: Colors.red,
-  backgroundColor: elderWhite,
-  cardColor: elderBlueGrey,
+  backgroundColor: seniorWhite,
+  cardColor: seniorBlueGrey,
   textTheme: Typography.blackMountainView,
 );
 
 var darkTheme = ThemeData(
-    primaryColor: elderDarkGrey,
-    accentColor: elderPink,
-    backgroundColor: elderBlack,
-    cardColor: elderDarkGreySecondary,
-    dividerTheme: DividerThemeData(color: elderBlueGrey),
+    primaryColor: seniorDarkGrey,
+    accentColor: seniorPink,
+    backgroundColor: seniorBlack,
+    cardColor: seniorDarkGreySecondary,
+    dividerTheme: DividerThemeData(color: seniorBlueGrey),
     textTheme: Typography.whiteMountainView);
 
 class TextStyles {

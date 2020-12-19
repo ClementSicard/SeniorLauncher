@@ -10,7 +10,7 @@
     <uses-feature android:name="android.hardware.telephony" android:required="false" />
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="Elder Launcher"
+        android:label="SeniorLauncher"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

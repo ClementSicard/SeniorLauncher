@@ -1,8 +1,8 @@
-# Elder Launcher
+# SeniorLauncher
 
-Elder Launcher is a launcher designed for seniors focused on simplicity and legibility.
+SeniorLauncher is a launcher designed for seniors focused on simplicity and legibility.
 
-Elder Launcher supports pinning favorite apps and contacts to the homescreen for quick access.
+SeniorLauncher supports pinning favorite apps and contacts to the homescreen for quick access.
 
 <span>
 <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" height="350" alt="Homescreen with favourite apps">
@@ -17,7 +17,7 @@ Elder Launcher supports pinning favorite apps and contacts to the homescreen for
 Also available from [GitHub Releases](https://github.com/itsarjunsinh/senior_launcher/releases)
 ## Tech
 
-Elder Launcher is developed using [Flutter](flutter.dev).
+SeniorLauncher is developed using [Flutter](flutter.dev).
 
 The app relies heavily on the following open source Flutter packages:
 
