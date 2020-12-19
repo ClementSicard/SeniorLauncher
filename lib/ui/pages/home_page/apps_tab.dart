@@ -47,7 +47,9 @@ class AppsTab extends StatelessWidget {
                   ),
                 ),
               ] else ...[
-                LoadingWidget()
+                Center(
+                  child: LoadingWidget(),
+                )
               ],
             ],
           ),

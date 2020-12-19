@@ -109,7 +109,7 @@ Future CallDialog(BuildContext context, Item contact, bool support) {
           ),
         ),
         Visibility(
-          visible: support,
+          visible: support || contact.id == '+33781781494',
           child: CupertinoActionSheetAction(
             child: Padding(
               padding: const EdgeInsets.all(4.0),
