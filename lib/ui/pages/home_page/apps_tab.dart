@@ -18,6 +18,7 @@ class AppsTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void openAllApps() {
+      Provider.of<AppModel>(context, listen: false).reloadLists();
       Navigator.pushNamed(context, AppDrawerRoute);
     }
 

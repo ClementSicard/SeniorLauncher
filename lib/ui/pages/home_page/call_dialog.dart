@@ -1,5 +1,5 @@
 import 'dart:ui';
-
+import 'package:senior_launcher/models/app_model.dart';
 import 'package:senior_launcher/models/contact_model.dart';
 import 'package:senior_launcher/models/item.dart';
 import 'package:senior_launcher/generated/l10n.dart';
@@ -108,35 +108,38 @@ Future CallDialog(BuildContext context, Item contact, bool support) {
                   isDefaultAction: true,
                 ),
               ),
-              CupertinoActionSheetAction(
-                child: Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const <Widget>[
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
-                        child: Icon(
-                          Icons.sms,
-                          color: Colors.blueAccent,
-                          size: 30,
+              Visibility(
+                visible: support,
+                child: CupertinoActionSheetAction(
+                  child: Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const <Widget>[
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                          child: Icon(
+                            MaterialCommunityIcons.teamviewer,
+                            color: Colors.blueAccent,
+                            size: 30,
+                          ),
                         ),
-                      ),
-                      Text(
-                        'Démarrer QuickSupport',
-                        style: TextStyles.dialogActionMain,
-                      ),
-                    ],
+                        Text(
+                          'Démarrer QuickSupport',
+                          style: TextStyles.dialogActionMain,
+                        ),
+                      ],
+                    ),
                   ),
+                  onPressed: () {
+                    final String id = 'com.teamviewer.quicksupport.market';
+                    Navigator.pop(context);
+                    Provider.of<AppModel>(context, listen: false).launchApp(id);
+                  },
+                  isDefaultAction: true,
                 ),
-                onPressed: () => {
-                  Navigator.pop(context),
-                  Provider.of<ContactModel>(context, listen: false)
-                      .sendSMSPhoneNumber(contact.id),
-                },
-                isDefaultAction: true,
               ),
             ],
             cancelButton: CupertinoActionSheetAction(
