@@ -27,7 +27,7 @@ Future CallDialog(BuildContext context, Item contact, bool support) {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 4, 0),
-                  child: Icon(
+                  child: const Icon(
                     Icons.call,
                     color: Colors.redAccent,
                     size: 30,
@@ -147,7 +147,7 @@ Future CallDialog(BuildContext context, Item contact, bool support) {
           padding: const EdgeInsets.all(4.0),
           child: Text(
             S.of(context).dlgCancel.toUpperCase(),
-            style: TextStyle(color: Colors.red),
+            style: const TextStyle(color: Colors.red),
           ),
         ),
         onPressed: () => Navigator.pop(context),
