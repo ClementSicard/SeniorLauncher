@@ -78,10 +78,11 @@ class ReorderPage extends StatelessWidget {
           builder: (context, editModel, _) {
             if (editModel.isListModified) {
               return Padding(
-                padding: EdgeInsets.only(bottom: Values.fabSafeBottomPadding),
-                child: FloatingActionButton.extended(
-                  icon: Icon(Icons.save),
-                  label: Text('OK'),
+                padding:
+                    const EdgeInsets.only(bottom: Values.fabSafeBottomPadding),
+                child: FloatingActionButton(
+                  child: const Icon(Icons.check),
+                  backgroundColor: Colors.redAccent[100],
                   onPressed: () {
                     saveFavItems(editModel.getFavIds());
                     Navigator.pop(context);

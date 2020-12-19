@@ -27,7 +27,7 @@ class ReorderWidget extends StatelessWidget {
               ))
           .toList(),
       onReorder: (oldIndex, newIndex) => reorderItems(oldIndex, newIndex),
-      padding: EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.fromLTRB(4, 8, 8, 4),
     );
   }
 }
@@ -43,7 +43,12 @@ class ReorderableCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.symmetric(horizontal: 2, vertical: 6),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(25.0),
+      ),
+      margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 4),
+      color: Colors.grey[200],
+      elevation: 1,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListTile(

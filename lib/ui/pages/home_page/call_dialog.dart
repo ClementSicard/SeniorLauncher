@@ -73,7 +73,7 @@ Future CallDialog(BuildContext context, Item contact) {
                 onPressed: () => {
                   Navigator.pop(context),
                   Provider.of<ContactModel>(context, listen: false)
-                      .callPhoneNumber(contact.id)
+                      .sendSMSPhoneNumber(contact.id),
                 },
                 isDefaultAction: true,
               ),
@@ -103,7 +103,7 @@ Future CallDialog(BuildContext context, Item contact) {
                   onPressed: () => {
                     Navigator.pop(context),
                     Provider.of<ContactModel>(context, listen: false)
-                        .callPhoneNumber(contact.id)
+                        .goToWhatsAppConv(contact.id)
                   },
                   isDefaultAction: true,
                 ),
