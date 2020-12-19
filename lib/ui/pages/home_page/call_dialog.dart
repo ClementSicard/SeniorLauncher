@@ -11,145 +11,147 @@ import 'package:provider/provider.dart';
 
 Future CallDialog(BuildContext context, Item contact, bool support) {
   return showCupertinoModalPopup(
-      context: context,
-      filter: ImageFilter.blur(),
-      builder: (context) => CupertinoActionSheet(
-            title: Text(
-              contact.name,
-              style: TextStyles.dialogTitle,
+    context: context,
+    filter: ImageFilter.blur(),
+    builder: (context) => CupertinoActionSheet(
+      title: Text(
+        contact.name,
+        style: TextStyles.dialogTitle,
+      ),
+      actions: [
+        CupertinoActionSheetAction(
+          child: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 4, 0),
+                  child: Icon(
+                    Icons.call,
+                    color: Colors.redAccent,
+                    size: 30,
+                  ),
+                ),
+                Text(
+                  S.of(context).dlgCall,
+                  style: TextStyles.dialogActionMain,
+                ),
+              ],
             ),
-            actions: [
-              CupertinoActionSheetAction(
-                child: Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 0, 4, 0),
-                        child: Icon(
-                          Icons.call,
-                          color: Colors.redAccent,
-                          size: 30,
-                        ),
-                      ),
-                      Text(
-                        S.of(context).dlgCall,
-                        style: TextStyles.dialogActionMain,
-                      ),
-                    ],
+          ),
+          onPressed: () => {
+            Navigator.pop(context),
+            Provider.of<ContactModel>(context, listen: false)
+                .callPhoneNumber(contact.id)
+          },
+          isDefaultAction: true,
+        ),
+        CupertinoActionSheetAction(
+          child: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const <Widget>[
+                Padding(
+                  padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                  child: Icon(
+                    Icons.sms,
+                    color: Colors.blueAccent,
+                    size: 30,
                   ),
                 ),
-                onPressed: () => {
-                  Navigator.pop(context),
-                  Provider.of<ContactModel>(context, listen: false)
-                      .callPhoneNumber(contact.id)
-                },
-                isDefaultAction: true,
-              ),
-              CupertinoActionSheetAction(
-                child: Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const <Widget>[
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
-                        child: Icon(
-                          Icons.sms,
-                          color: Colors.blueAccent,
-                          size: 30,
-                        ),
-                      ),
-                      Text(
-                        'Envoyer un SMS',
-                        style: TextStyles.dialogActionMain,
-                      ),
-                    ],
-                  ),
+                Text(
+                  'Envoyer un SMS',
+                  style: TextStyles.dialogActionMain,
                 ),
-                onPressed: () => {
-                  Navigator.pop(context),
-                  Provider.of<ContactModel>(context, listen: false)
-                      .sendSMSPhoneNumber(contact.id),
-                },
-                isDefaultAction: true,
-              ),
-              Visibility(
-                visible: contact.id != '',
-                child: CupertinoActionSheetAction(
-                  child: Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: const <Widget>[
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
-                          child: Icon(
-                            MaterialCommunityIcons.whatsapp,
-                            color: Colors.green,
-                            size: 30,
-                          ),
-                        ),
-                        Text(
-                          'Contacter sur WhatsApp',
-                          style: TextStyles.dialogActionMain,
-                        ),
-                      ],
+              ],
+            ),
+          ),
+          onPressed: () => {
+            Navigator.pop(context),
+            Provider.of<ContactModel>(context, listen: false)
+                .sendSMSPhoneNumber(contact.id),
+          },
+          isDefaultAction: true,
+        ),
+        Visibility(
+          visible: contact.id != '',
+          child: CupertinoActionSheetAction(
+            child: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: const <Widget>[
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                    child: Icon(
+                      MaterialCommunityIcons.whatsapp,
+                      color: Colors.green,
+                      size: 30,
                     ),
                   ),
-                  onPressed: () => {
-                    Navigator.pop(context),
-                    Provider.of<ContactModel>(context, listen: false)
-                        .goToWhatsAppConv(contact.id)
-                  },
-                  isDefaultAction: true,
-                ),
+                  Text(
+                    'Contacter sur WhatsApp',
+                    style: TextStyles.dialogActionMain,
+                  ),
+                ],
               ),
-              Visibility(
-                visible: support,
-                child: CupertinoActionSheetAction(
-                  child: Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const <Widget>[
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
-                          child: Icon(
-                            MaterialCommunityIcons.teamviewer,
-                            color: Colors.blueAccent,
-                            size: 30,
-                          ),
-                        ),
-                        Text(
-                          'Démarrer QuickSupport',
-                          style: TextStyles.dialogActionMain,
-                        ),
-                      ],
+            ),
+            onPressed: () => {
+              Navigator.pop(context),
+              Provider.of<ContactModel>(context, listen: false)
+                  .goToWhatsAppConv(contact.id)
+            },
+            isDefaultAction: true,
+          ),
+        ),
+        Visibility(
+          visible: support,
+          child: CupertinoActionSheetAction(
+            child: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const <Widget>[
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                    child: Icon(
+                      MaterialCommunityIcons.teamviewer,
+                      color: Colors.blueAccent,
+                      size: 30,
                     ),
                   ),
-                  onPressed: () {
-                    final String id = 'com.teamviewer.quicksupport.market';
-                    Navigator.pop(context);
-                    Provider.of<AppModel>(context, listen: false).launchApp(id);
-                  },
-                  isDefaultAction: true,
-                ),
-              ),
-            ],
-            cancelButton: CupertinoActionSheetAction(
-                child: Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Text(
-                    S.of(context).dlgCancel.toUpperCase(),
-                    style: TextStyle(color: Colors.red),
+                  Text(
+                    'Démarrer QuickSupport',
+                    style: TextStyles.dialogActionMain,
                   ),
-                ),
-                onPressed: () => {Navigator.pop(context)}),
-          ));
+                ],
+              ),
+            ),
+            onPressed: () {
+              final String id = 'com.teamviewer.quicksupport.market';
+              Navigator.pop(context);
+              Provider.of<AppModel>(context, listen: false).launchApp(id);
+            },
+            isDefaultAction: true,
+          ),
+        ),
+      ],
+      cancelButton: CupertinoActionSheetAction(
+        child: Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: Text(
+            S.of(context).dlgCancel.toUpperCase(),
+            style: TextStyle(color: Colors.red),
+          ),
+        ),
+        onPressed: () => Navigator.pop(context),
+      ),
+    ),
+  );
 }

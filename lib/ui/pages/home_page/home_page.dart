@@ -41,8 +41,8 @@ class HomePage extends StatelessWidget {
               leading: IconButton(
                 onPressed: () {
                   print('Assistance');
-                  var contactClement = Item(
-                      '+33781781494', 'Appeler Clément à la rescousse !', null);
+                  var contactClement = Item('+33781781494',
+                      'Appeler Clément à la rescousse 🚨', null);
                   CallDialog(context, contactClement, true);
                 },
                 icon: const Icon(
@@ -54,7 +54,7 @@ class HomePage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: IconButton(
-                    icon: Icon(Icons.edit),
+                    icon: const Icon(Icons.edit),
                     onPressed: () =>
                         openEditDialog(DefaultTabController.of(context).index),
                   ),
@@ -69,7 +69,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               bottom: PreferredSize(
-                preferredSize: Size(0, 80),
+                preferredSize: const Size(0, 80),
                 child: Column(
                   children: <Widget>[
                     Consumer<DateTimeModel>(
@@ -86,9 +86,8 @@ class HomePage extends StatelessWidget {
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
-                              Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(0, 0, 4.0, 0),
+                              const Padding(
+                                padding: EdgeInsets.fromLTRB(0, 0, 4.0, 0),
                                 child: Icon(Icons.apps),
                               ),
                               Flexible(
@@ -108,9 +107,8 @@ class HomePage extends StatelessWidget {
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
-                              Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(0, 0, 4.0, 0),
+                              const Padding(
+                                padding: EdgeInsets.fromLTRB(0, 0, 4.0, 0),
                                 child: Icon(Icons.contacts),
                               ),
                               Flexible(
