@@ -24,7 +24,7 @@ class ContactsTab extends StatelessWidget {
     }
 
     void openContactDialog(Item contact) {
-      CallDialog(context, contact);
+      CallDialog(context, contact, false);
     }
 
     void openEditScreen() {

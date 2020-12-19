@@ -29,7 +29,7 @@ class TextStyles {
   static const dialogTitle = TextStyle(color: Colors.black, fontSize: 25);
   static const dialogAction = TextStyle(color: Colors.blue, fontSize: 22);
   static const dialogActionMain =
-      TextStyle(color: Colors.black87, fontSize: 25);
+      TextStyle(color: Colors.blue, fontSize: 25, fontWeight: FontWeight.w400);
 }
 
 class Values {

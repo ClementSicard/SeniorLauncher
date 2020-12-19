@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:provider/provider.dart';
 
-Future CallDialog(BuildContext context, Item contact) {
+Future CallDialog(BuildContext context, Item contact, bool support) {
   return showCupertinoModalPopup(
       context: context,
       filter: ImageFilter.blur(),
@@ -29,7 +29,7 @@ Future CallDialog(BuildContext context, Item contact) {
                         padding: const EdgeInsets.fromLTRB(0, 0, 4, 0),
                         child: Icon(
                           Icons.call,
-                          color: Colors.green,
+                          color: Colors.redAccent,
                           size: 30,
                         ),
                       ),
@@ -59,7 +59,7 @@ Future CallDialog(BuildContext context, Item contact) {
                         padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
                         child: Icon(
                           Icons.sms,
-                          color: Colors.green,
+                          color: Colors.blueAccent,
                           size: 30,
                         ),
                       ),
@@ -108,12 +108,43 @@ Future CallDialog(BuildContext context, Item contact) {
                   isDefaultAction: true,
                 ),
               ),
+              CupertinoActionSheetAction(
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const <Widget>[
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                        child: Icon(
+                          Icons.sms,
+                          color: Colors.blueAccent,
+                          size: 30,
+                        ),
+                      ),
+                      Text(
+                        'Démarrer QuickSupport',
+                        style: TextStyles.dialogActionMain,
+                      ),
+                    ],
+                  ),
+                ),
+                onPressed: () => {
+                  Navigator.pop(context),
+                  Provider.of<ContactModel>(context, listen: false)
+                      .sendSMSPhoneNumber(contact.id),
+                },
+                isDefaultAction: true,
+              ),
             ],
             cancelButton: CupertinoActionSheetAction(
                 child: Padding(
                   padding: const EdgeInsets.all(4.0),
                   child: Text(
-                    S.of(context).dlgCancel,
+                    S.of(context).dlgCancel.toUpperCase(),
+                    style: TextStyle(color: Colors.red),
                   ),
                 ),
                 onPressed: () => {Navigator.pop(context)}),

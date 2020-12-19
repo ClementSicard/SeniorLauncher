@@ -11,7 +11,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:provider/provider.dart';
-
 import 'call_dialog.dart';
 
 class HomePage extends StatelessWidget {
@@ -44,7 +43,7 @@ class HomePage extends StatelessWidget {
                   print('Assistance');
                   var contactClement = Item(
                       '+33781781494', 'Appeler Clément à la rescousse !', null);
-                  CallDialog(context, contactClement);
+                  CallDialog(context, contactClement, true);
                 },
                 icon: const Icon(
                   FontAwesome.life_bouy,
