@@ -7,21 +7,41 @@ class CustomCircleAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return item.icon.isNotEmpty
+    return item.icon.isNotEmpty &&
+            isNumeric(item.id.replaceAll(RegExp('\\+'), ''))
         ? CircleAvatar(
-            backgroundImage: Image(
-              image: MemoryImage(item.icon),
-            ).image,
-            backgroundColor: Colors.white,
+            child: CircleAvatar(
+              backgroundImage: Image(
+                image: MemoryImage(item.icon),
+              ).image,
+              backgroundColor: Colors.white,
+              radius: 26,
+            ),
+            backgroundColor: Colors.redAccent,
             radius: 29,
           )
-        : const CircleAvatar(
-            child: Icon(
-              Icons.people,
-              color: Colors.white,
-            ),
-            radius: 29,
-            backgroundColor: Colors.redAccent,
-          );
+        : item.icon.isNotEmpty
+            ? CircleAvatar(
+                backgroundImage: Image(
+                  image: MemoryImage(item.icon),
+                ).image,
+                backgroundColor: Colors.white,
+                radius: 29,
+              )
+            : const CircleAvatar(
+                child: Icon(
+                  Icons.people,
+                  color: Colors.white,
+                ),
+                radius: 29,
+                backgroundColor: Colors.redAccent,
+              );
+  }
+
+  bool isNumeric(String s) {
+    if (s == null) {
+      return false;
+    }
+    return double.parse(s, (e) => null) != null;
   }
 }
