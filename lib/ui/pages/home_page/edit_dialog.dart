@@ -10,76 +10,74 @@ import 'package:provider/provider.dart';
 
 Future EditDialog(BuildContext context, EditMode editMode) {
   return showCupertinoModalPopup(
-      context: context,
-      builder: (context) => CupertinoActionSheet(
-            title: Text(
-              S.of(context).dlgEditTitle,
-              style: TextStyles.dialogTitle,
+    context: context,
+    builder: (context) => CupertinoActionSheet(
+      title: Text(
+        S.of(context).dlgEditTitle,
+        style: TextStyles.dialogTitle,
+      ),
+      actions: [
+        CupertinoActionSheetAction(
+          child: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Text(
+              editMode == EditMode.apps
+                  ? S.of(context).dlgAppsAddRemove
+                  : S.of(context).dlgContactsAddRemove,
+              style: TextStyles.dialogAction,
             ),
-            actions: [
-              CupertinoActionSheetAction(
-                child: Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Text(
-                    editMode == EditMode.apps
-                        ? S.of(context).dlgAppsAddRemove
-                        : S.of(context).dlgContactsAddRemove,
-                    style: TextStyles.dialogAction,
-                  ),
-                ),
-                onPressed: () => {
-                  Navigator.pop(context),
-                  Navigator.pushNamed(context, EditPageRoute,
-                      arguments: editMode)
-                },
-              ),
-              CupertinoActionSheetAction(
-                child: Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Text(
-                    editMode == EditMode.apps
-                        ? S.of(context).dlgAppsReorder
-                        : S.of(context).dlgContactsReorder,
-                    style: TextStyles.dialogAction,
-                  ),
-                ),
-                onPressed: () => {
-                  editMode == EditMode.apps
-                      ? Provider.of<AppModel>(context, listen: false)
-                          .reloadLists()
-                      : Provider.of<ContactModel>(context, listen: false)
-                          .reloadLists(),
-                  Navigator.pop(context),
-                  Navigator.pushNamed(context, ReorderPageRoute,
-                      arguments: editMode)
-                },
-              ),
-              CupertinoActionSheetAction(
-                child: Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Text(
-                    editMode == EditMode.apps
-                        ? S.of(context).dlgAppsReload
-                        : S.of(context).dlgContactsReload,
-                    style: TextStyles.dialogAction,
-                  ),
-                ),
-                onPressed: () => {
-                  editMode == EditMode.apps
-                      ? Provider.of<AppModel>(context, listen: false)
-                          .reloadLists()
-                      : Provider.of<ContactModel>(context, listen: false)
-                          .reloadLists()
-                },
-              ),
-            ],
-            cancelButton: Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: CupertinoActionSheetAction(
-                  child: Text(S.of(context).dlgCancel.toUpperCase(),
-                      style: TextStyle(color: Colors.redAccent)),
-                  isDefaultAction: true,
-                  onPressed: () => {Navigator.pop(context)}),
+          ),
+          onPressed: () => {
+            Navigator.pop(context),
+            Navigator.pushNamed(context, EditPageRoute, arguments: editMode)
+          },
+        ),
+        CupertinoActionSheetAction(
+          child: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Text(
+              editMode == EditMode.apps
+                  ? S.of(context).dlgAppsReorder
+                  : S.of(context).dlgContactsReorder,
+              style: TextStyles.dialogAction,
             ),
-          ));
+          ),
+          onPressed: () => {
+            editMode == EditMode.apps
+                ? Provider.of<AppModel>(context, listen: false).reloadLists()
+                : Provider.of<ContactModel>(context, listen: false)
+                    .reloadLists(),
+            Navigator.pop(context),
+            Navigator.pushNamed(context, ReorderPageRoute, arguments: editMode)
+          },
+        ),
+        CupertinoActionSheetAction(
+          child: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Text(
+              editMode == EditMode.apps
+                  ? S.of(context).dlgAppsReload
+                  : S.of(context).dlgContactsReload,
+              style: TextStyles.dialogAction,
+            ),
+          ),
+          onPressed: () => {
+            editMode == EditMode.apps
+                ? Provider.of<AppModel>(context, listen: false).reloadLists()
+                : Provider.of<ContactModel>(context, listen: false)
+                    .reloadLists()
+          },
+        ),
+      ],
+      cancelButton: Padding(
+        padding: const EdgeInsets.all(4.0),
+        child: CupertinoActionSheetAction(
+          child: Text(S.of(context).dlgCancel.toUpperCase(),
+              style: const TextStyle(color: Colors.redAccent)),
+          isDefaultAction: true,
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
+    ),
+  );
 }

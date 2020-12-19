@@ -45,7 +45,7 @@ class MultiSelectWidget extends StatelessWidget {
         );
       },
       separatorBuilder: (_, __) {
-        return Divider(
+        return const Divider(
           thickness: Values.dividerThickness,
         );
       },

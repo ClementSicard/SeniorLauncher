@@ -23,11 +23,12 @@ Route<dynamic> generateRoute(RouteSettings settings) {
           routeName: settings.name, viewToShow: ReorderPage(editMode));
     default:
       return MaterialPageRoute(
-          builder: (_) => Scaffold(
-                body: Center(
-                  child: Text('Undefined Route'),
-                ),
-              ));
+        builder: (_) => Scaffold(
+          body: Center(
+            child: const Text('Undefined Route'),
+          ),
+        ),
+      );
   }
 }
 

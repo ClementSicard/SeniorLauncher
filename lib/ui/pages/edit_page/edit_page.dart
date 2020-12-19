@@ -29,9 +29,7 @@ class EditPage extends StatelessWidget {
       favItems = Provider.of<ContactModel>(context).favContacts;
     }
 
-    void backToHome() {
-      Navigator.pop(context);
-    }
+    void backToHome() => Navigator.pop(context);
 
     void saveFavItems(List<String> newFavItems) {
       if (editMode == EditMode.apps) {
@@ -81,7 +79,8 @@ class EditPage extends StatelessWidget {
           builder: (context, editModel, _) {
             if (editModel.isListModified) {
               return Padding(
-                padding: EdgeInsets.only(bottom: Values.fabSafeBottomPadding),
+                padding:
+                    const EdgeInsets.only(bottom: Values.fabSafeBottomPadding),
                 child: FloatingActionButton(
                   isExtended: true,
                   child: const Icon(Icons.check),

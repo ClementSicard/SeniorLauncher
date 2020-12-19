@@ -27,16 +27,17 @@ class AppDrawerScreen extends StatelessWidget {
           children: <Widget>[
             Flexible(
               child: Consumer<AppModel>(
-                  builder: (context, appService, _) => Column(
-                        children: <Widget>[
-                          if (appService.isAppListLoaded &&
-                              appService.allApps.isNotEmpty) ...[
-                            AppDrawer(appService.allApps, launchApp)
-                          ] else ...[
-                            LoadingWidget()
-                          ]
-                        ],
-                      )),
+                builder: (context, appService, _) => Column(
+                  children: <Widget>[
+                    if (appService.isAppListLoaded &&
+                        appService.allApps.isNotEmpty) ...[
+                      AppDrawer(appService.allApps, launchApp)
+                    ] else ...[
+                      LoadingWidget()
+                    ]
+                  ],
+                ),
+              ),
             ),
             Align(
               alignment: Alignment.bottomCenter,
@@ -80,7 +81,7 @@ class AppDrawer extends StatelessWidget {
           );
         },
         separatorBuilder: (_, __) {
-          return Divider(
+          return const Divider(
             thickness: Values.dividerThickness,
           );
         },

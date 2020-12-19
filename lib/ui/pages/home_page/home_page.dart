@@ -1,3 +1,4 @@
+import 'package:provider/provider.dart';
 import 'package:senior_launcher/models/contact_model.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:senior_launcher/constants/edit_mode.dart';
@@ -11,7 +12,6 @@ import 'package:senior_launcher/ui/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:provider/provider.dart';
 import 'call_dialog.dart';
 
 class HomePage extends StatelessWidget {
@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
             leading: IconButton(
               onPressed: () {
                 print('Assistance');
-                var contactClement = Item(
+                const contactClement = Item(
                     '+33781781494', 'Appeler Clément à la rescousse 🚨', null);
                 CallDialog(context, contactClement, support: true);
               },
@@ -60,40 +60,77 @@ class HomePage extends StatelessWidget {
                     style: TextStyle(fontSize: 17),
                   ),
                   onPressed: () => showCupertinoModalPopup(
-                      context: context,
-                      builder: (nContext) {
-                        List<Item> urgences = const [
-                          Item('15', 'SAMU', null),
-                          Item('17', 'POLICE', null),
-                          Item('18', 'POMPIERS', null),
-                          Item('112', 'GENERAL', null),
-                        ];
-                        return CupertinoActionSheet(
-                          actions: urgences
-                              .map(
-                                (u) => CupertinoActionSheetAction(
-                                  onPressed: () => Provider.of<ContactModel>(
-                                          context,
-                                          listen: false)
-                                      .callPhoneNumber(u.id),
-                                  child: Text(
-                                    '${u.name} (${u.id})',
-                                    style: const TextStyle(
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                  isDestructiveAction: true,
+                    context: context,
+                    builder: (nContext) {
+                      List<Item> urgences = const [
+                        Item('15', 'SAMU', null),
+                        Item('17', 'POLICE', null),
+                        Item('18', 'POMPIERS', null),
+                        Item('112', 'GENERAL', null),
+                      ];
+                      return CupertinoActionSheet(
+                        actions: urgences
+                            .map(
+                              (u) => CupertinoActionSheetAction(
+                                onPressed: () => showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                      elevation: 0,
+                                      shape: const RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(20.0),
+                                        ),
+                                      ),
+                                      title: Text(
+                                        'Es-tu sûre de vouloir appeler le ${u.id} ?',
+                                        style: TextStyles.dialogTitle,
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      content: null,
+                                      actions: [
+                                        IconButton(
+                                          icon: const Icon(Icons.check),
+                                          iconSize: 110,
+                                          onPressed: () {
+                                            Navigator.pop(nContext);
+                                            Provider.of<ContactModel>(context,
+                                                    listen: false)
+                                                .callPhoneNumber(u.id);
+                                          },
+                                          color: Colors.green,
+                                        ),
+                                        IconButton(
+                                          icon: const Icon(Icons.clear),
+                                          iconSize: 110,
+                                          onPressed: () {
+                                            Navigator.pop(nContext);
+                                          },
+                                          color: Colors.red,
+                                        ),
+                                      ],
+                                    );
+                                  },
                                 ),
-                              )
-                              .toList(),
-                          cancelButton: CupertinoActionSheetAction(
-                            isDefaultAction: true,
-                            onPressed: () => Navigator.pop(nContext),
-                            child: const Text('ANNULER'),
-                          ),
-                        );
-                      }),
+                                child: Text(
+                                  '${u.name} (${u.id})',
+                                  style: const TextStyle(
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                isDestructiveAction: true,
+                              ),
+                            )
+                            .toList(),
+                        cancelButton: CupertinoActionSheetAction(
+                          isDefaultAction: true,
+                          onPressed: () => Navigator.pop(nContext),
+                          child: const Text('ANNULER'),
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ),
             ],

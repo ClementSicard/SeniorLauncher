@@ -25,7 +25,7 @@ class NativeMethods {
   }
 
   void sendSMStoANumber(String number) async {
-    String uri = 'sms:' + number;
+    final String uri = 'sms:' + number;
     if (await canLaunch(uri)) {
       await launch(uri);
     } else {
