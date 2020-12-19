@@ -3,6 +3,7 @@ import 'package:senior_launcher/constants/custom_functions.dart';
 import 'package:senior_launcher/models/item.dart';
 import 'package:senior_launcher/ui/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:senior_launcher/utils/circle_avatar_custom.dart';
 
 class FavGridView extends StatelessWidget {
   final List<Item> favItems;
@@ -41,21 +42,7 @@ class FavGridView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       ...[
-                        item.icon.isNotEmpty
-                            ? CircleAvatar(
-                                backgroundImage: Image(
-                                  image: MemoryImage(item.icon),
-                                ).image,
-                                backgroundColor: Colors.white,
-                                radius: 29,
-                              )
-                            : const CircleAvatar(
-                                child: Icon(
-                                  Icons.people,
-                                  color: Colors.white,
-                                ),
-                                backgroundColor: Colors.redAccent,
-                              ),
+                        CustomCircleAvatar(item),
                       ],
                       Flexible(
                         child: Padding(

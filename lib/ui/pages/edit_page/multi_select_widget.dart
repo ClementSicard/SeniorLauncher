@@ -2,6 +2,7 @@ import 'package:senior_launcher/models/edit_model.dart';
 import 'package:senior_launcher/models/item.dart';
 import 'package:senior_launcher/ui/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:senior_launcher/utils/circle_avatar_custom.dart';
 
 class MultiSelectWidget extends StatelessWidget {
   final EditModel editModel;
@@ -36,21 +37,7 @@ class MultiSelectWidget extends StatelessWidget {
                   style: TextStyles.listTitle,
                 )
               : null,
-          secondary: item.icon.isNotEmpty
-              ? CircleAvatar(
-                  backgroundImage: Image(
-                    image: MemoryImage(item.icon),
-                  ).image,
-                  backgroundColor: Colors.white,
-                  radius: 29,
-                )
-              : const CircleAvatar(
-                  child: Icon(
-                    Icons.people,
-                    color: Colors.white,
-                  ),
-                  backgroundColor: Colors.redAccent,
-                ),
+          secondary: CustomCircleAvatar(item),
           value: isFav,
           onChanged: (bool isChecked) {
             toggleFav(position);

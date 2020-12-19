@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:senior_launcher/constants/edit_mode.dart';
 import 'package:senior_launcher/constants/route_names.dart';
 import 'package:senior_launcher/generated/l10n.dart';
@@ -75,7 +76,9 @@ Future EditDialog(BuildContext context, EditMode editMode) {
             cancelButton: Padding(
               padding: const EdgeInsets.all(4.0),
               child: CupertinoActionSheetAction(
-                  child: Text(S.of(context).dlgCancel),
+                  child: Text(S.of(context).dlgCancel.toUpperCase(),
+                      style: TextStyle(color: Colors.redAccent)),
+                  isDefaultAction: true,
                   onPressed: () => {Navigator.pop(context)}),
             ),
           ));

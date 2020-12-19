@@ -45,8 +45,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ajouter/supprimer des contacts favoris"),
         "dlgContactsReload": MessageLookupByLibrary.simpleMessage(
             "Recharger la liste de contacts"),
-        "dlgContactsReorder":
-            MessageLookupByLibrary.simpleMessage("Réorganiser les contacts"),
+        "dlgContactsReorder": MessageLookupByLibrary.simpleMessage(
+            "Changer l'ordre des contacts"),
         "dlgEditTitle":
             MessageLookupByLibrary.simpleMessage("Modifier les favoris"),
         "msgNoContactsPermission": MessageLookupByLibrary.simpleMessage(

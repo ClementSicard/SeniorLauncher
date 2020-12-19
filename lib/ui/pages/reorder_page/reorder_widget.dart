@@ -2,6 +2,7 @@ import 'package:senior_launcher/models/edit_model.dart';
 import 'package:senior_launcher/models/item.dart';
 import 'package:senior_launcher/ui/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:senior_launcher/utils/circle_avatar_custom.dart';
 
 class ReorderWidget extends StatelessWidget {
   final EditModel editModel;
@@ -50,12 +51,8 @@ class ReorderableCard extends StatelessWidget {
             item.name,
             style: TextStyles.listTitle,
           ),
-          leading: item.icon.isNotEmpty
-              ? Image(
-                  image: MemoryImage(item.icon),
-                )
-              : CircleAvatar(),
-          trailing: Icon(Icons.drag_handle),
+          leading: CustomCircleAvatar(item),
+          trailing: const Icon(Icons.drag_handle),
         ),
       ),
     );
