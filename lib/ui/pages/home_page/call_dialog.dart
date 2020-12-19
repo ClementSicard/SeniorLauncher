@@ -9,7 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:provider/provider.dart';
 
-Future CallDialog(BuildContext context, Item contact, bool support) {
+Future CallDialog(BuildContext context, Item contact,
+    {bool support = false, bool secureCall = false}) {
   return showCupertinoModalPopup(
     context: context,
     filter: ImageFilter.blur(),

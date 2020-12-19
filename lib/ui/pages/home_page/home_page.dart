@@ -44,7 +44,7 @@ class HomePage extends StatelessWidget {
                 print('Assistance');
                 var contactClement = Item(
                     '+33781781494', 'Appeler Clément à la rescousse 🚨', null);
-                CallDialog(context, contactClement, true);
+                CallDialog(context, contactClement, support: true);
               },
               icon: const Icon(
                 FontAwesome.life_bouy,
