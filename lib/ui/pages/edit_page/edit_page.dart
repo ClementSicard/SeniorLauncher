@@ -77,17 +77,15 @@ class EditPage extends StatelessWidget {
             ],
           ),
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: Consumer<EditModel>(
           builder: (context, editModel, _) {
             if (editModel.isListModified) {
               return Padding(
                 padding: EdgeInsets.only(bottom: Values.fabSafeBottomPadding),
-                child: FloatingActionButton.extended(
+                child: FloatingActionButton(
                   isExtended: true,
-                  icon: const Icon(Icons.save),
-                  backgroundColor: Colors.greenAccent[400],
-                  label: const Text('OK'),
+                  child: const Icon(Icons.check),
+                  backgroundColor: Colors.redAccent[100],
                   onPressed: () {
                     saveFavItems(editModel.getFavIds());
                     Navigator.pop(context);

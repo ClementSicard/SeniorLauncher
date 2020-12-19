@@ -37,10 +37,20 @@ class MultiSelectWidget extends StatelessWidget {
                 )
               : null,
           secondary: item.icon.isNotEmpty
-              ? Image(
-                  image: MemoryImage(item.icon),
+              ? CircleAvatar(
+                  backgroundImage: Image(
+                    image: MemoryImage(item.icon),
+                  ).image,
+                  backgroundColor: Colors.white,
+                  radius: 29,
                 )
-              : CircleAvatar(),
+              : const CircleAvatar(
+                  child: Icon(
+                    Icons.people,
+                    color: Colors.white,
+                  ),
+                  backgroundColor: Colors.redAccent,
+                ),
           value: isFav,
           onChanged: (bool isChecked) {
             toggleFav(position);

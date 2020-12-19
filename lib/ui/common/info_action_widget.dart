@@ -55,7 +55,7 @@ class InfoActionWidget extends StatelessWidget {
                         child: AutoSizeText(
                           buttonLabel,
                           style: TextStyles.actionButtonLabel,
-                          textAlign: TextAlign.start,
+                          textAlign: TextAlign.center,
                         ),
                       ),
                     ],

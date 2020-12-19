@@ -2,7 +2,6 @@ import 'package:senior_launcher/data_sources/app_repository.dart';
 import 'package:senior_launcher/data_sources/contact_repository.dart';
 import 'package:senior_launcher/models/app_model.dart';
 import 'package:senior_launcher/models/contact_model.dart';
-import 'package:senior_launcher/models/date_time_model.dart';
 import 'package:senior_launcher/generated/l10n.dart';
 import 'package:senior_launcher/ui/pages/home_page/home_page.dart';
 import 'package:senior_launcher/ui/router.dart';
