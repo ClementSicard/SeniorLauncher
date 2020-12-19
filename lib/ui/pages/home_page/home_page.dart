@@ -109,7 +109,7 @@ class HomePage extends StatelessWidget {
                           children: <Widget>[
                             const Padding(
                               padding: EdgeInsets.fromLTRB(0, 0, 4.0, 0),
-                              child: Icon(Icons.contacts),
+                              child: Icon(Icons.people),
                             ),
                             Flexible(
                               child: AutoSizeText(
@@ -133,15 +133,6 @@ class HomePage extends StatelessWidget {
               AppsTab(),
               ContactsTab(),
             ],
-          ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-          floatingActionButton: Padding(
-            padding: const EdgeInsets.only(bottom: 45.0),
-            child: FloatingActionButton(
-              child: Icon(Icons.mic, size: 35),
-              backgroundColor: Colors.redAccent[100],
-              onPressed: () {},
-            ),
           ),
         ),
       ),
