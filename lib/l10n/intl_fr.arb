@@ -1,0 +1,23 @@
+{
+    "Apps": "Apps",
+    "Contacts": "Contacts",
+    "btnAllApps": "All Apps",
+    "btnAllContacts": "All Contacts",
+    "btnAddFavApps": "Ajouter des apps favorites",
+    "btnAddFavContacts": "Ajouter des contacts favoris",
+    "btnBackToHome": "retourner",
+    "btnGrantPermission": "Donner la permission",
+    "msgNoData": "Pas de données disponibles. Réessayez dans quelques secondes.",
+    "msgNoFavourites": "Vous n'avez ajouté aucun favori",
+    "msgNoContactsPermission": "Pour ajouter des contacts favoris à cet écran, autorisez cette application à accéder à vos contacts.",
+    "msgNoPhonePermission": "Pour faciliter les appels, autorisez cette application à démarrer des appels téléphoniques à votre place.",
+    "dlgCall" : "Téléphoner",
+    "dlgEditTitle": "Modifier les favoris",
+    "dlgCancel": "Annuler",
+    "dlgAppsAddRemove": "Ajouter/supprimer des Apps",
+    "dlgAppsReorder": "Réorganiser les Apps",
+    "dlgAppsReload": "Recharger la liste des Apps",
+    "dlgContactsAddRemove": "Ajouter/supprimer des Contacts",
+    "dlgContactsReorder": "Réorganiser les Contacts",
+    "dlgContactsReload": "Recharger la liste de contacts"
+}
