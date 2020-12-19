@@ -1,4 +1,4 @@
-import 'package:elder_launcher/models/item.dart';
+import 'package:senior_launcher/models/item.dart';
 import 'package:flutter/material.dart';
 
 class EditModel extends ChangeNotifier {

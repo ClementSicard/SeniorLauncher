@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:collection';
-import 'package:elder_launcher/models/interfaces/data_repository.dart';
-import 'package:elder_launcher/models/item.dart';
-import 'package:elder_launcher/utils/native_methods.dart';
+import 'package:senior_launcher/models/interfaces/data_repository.dart';
+import 'package:senior_launcher/models/item.dart';
+import 'package:senior_launcher/utils/native_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 

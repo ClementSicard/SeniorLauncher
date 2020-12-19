@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:elder_launcher/constants/custom_functions.dart';
-import 'package:elder_launcher/models/item.dart';
-import 'package:elder_launcher/ui/theme.dart';
+import 'package:senior_launcher/constants/custom_functions.dart';
+import 'package:senior_launcher/models/item.dart';
+import 'package:senior_launcher/ui/theme.dart';
 import 'package:flutter/material.dart';
 
 class FavGridView extends StatelessWidget {

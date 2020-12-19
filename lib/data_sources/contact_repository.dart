@@ -1,8 +1,8 @@
 import 'package:contacts_service/contacts_service.dart';
-import 'package:elder_launcher/constants/keys.dart';
-import 'package:elder_launcher/models/interfaces/data_repository.dart';
-import 'package:elder_launcher/models/item.dart' as item;
-import 'package:elder_launcher/utils/shared_prefs.dart';
+import 'package:senior_launcher/constants/keys.dart';
+import 'package:senior_launcher/models/interfaces/data_repository.dart';
+import 'package:senior_launcher/models/item.dart' as item;
+import 'package:senior_launcher/utils/shared_prefs.dart';
 
 class ContactRepository implements DataRepository {
   @override

@@ -1,4 +1,4 @@
-import 'package:elder_launcher/ui/colors.dart';
+import 'package:senior_launcher/ui/colors.dart';
 import 'package:flutter/material.dart';
 
 var lightTheme = ThemeData(

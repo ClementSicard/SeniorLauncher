@@ -1,6 +1,6 @@
-import 'package:elder_launcher/models/edit_model.dart';
-import 'package:elder_launcher/models/item.dart';
-import 'package:elder_launcher/ui/theme.dart';
+import 'package:senior_launcher/models/edit_model.dart';
+import 'package:senior_launcher/models/item.dart';
+import 'package:senior_launcher/ui/theme.dart';
 import 'package:flutter/material.dart';
 
 class MultiSelectWidget extends StatelessWidget {

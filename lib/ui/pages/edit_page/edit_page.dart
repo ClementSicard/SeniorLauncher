@@ -1,13 +1,13 @@
-import 'package:elder_launcher/constants/edit_mode.dart';
-import 'package:elder_launcher/models/app_model.dart';
-import 'package:elder_launcher/models/contact_model.dart';
-import 'package:elder_launcher/models/edit_model.dart';
-import 'package:elder_launcher/models/item.dart';
-import 'package:elder_launcher/generated/l10n.dart';
-import 'package:elder_launcher/ui/common/buttons.dart';
-import 'package:elder_launcher/ui/common/info_action_widget.dart';
-import 'package:elder_launcher/ui/pages/edit_page/multi_select_widget.dart';
-import 'package:elder_launcher/ui/theme.dart';
+import 'package:senior_launcher/constants/edit_mode.dart';
+import 'package:senior_launcher/models/app_model.dart';
+import 'package:senior_launcher/models/contact_model.dart';
+import 'package:senior_launcher/models/edit_model.dart';
+import 'package:senior_launcher/models/item.dart';
+import 'package:senior_launcher/generated/l10n.dart';
+import 'package:senior_launcher/ui/common/buttons.dart';
+import 'package:senior_launcher/ui/common/info_action_widget.dart';
+import 'package:senior_launcher/ui/pages/edit_page/multi_select_widget.dart';
+import 'package:senior_launcher/ui/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

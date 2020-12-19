@@ -1,4 +1,4 @@
-package xyz.arjunsinh.elderlauncher
+package com.clementsicard.seniorlauncher
 
 import android.content.Context
 import android.content.Intent
@@ -12,7 +12,7 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugins.GeneratedPluginRegistrant
 
 class MainActivity : FlutterActivity() {
-    private val CHANNEL = "arjunsinh.xyz/elder_launcher"
+    private val CHANNEL = "arjunsinh.xyz/senior_launcher"
 
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
         GeneratedPluginRegistrant.registerWith(flutterEngine)

@@ -1,9 +1,9 @@
-import 'package:elder_launcher/constants/edit_mode.dart';
-import 'package:elder_launcher/constants/route_names.dart';
-import 'package:elder_launcher/generated/l10n.dart';
-import 'package:elder_launcher/models/app_model.dart';
-import 'package:elder_launcher/models/contact_model.dart';
-import 'package:elder_launcher/ui/theme.dart';
+import 'package:senior_launcher/constants/edit_mode.dart';
+import 'package:senior_launcher/constants/route_names.dart';
+import 'package:senior_launcher/generated/l10n.dart';
+import 'package:senior_launcher/models/app_model.dart';
+import 'package:senior_launcher/models/contact_model.dart';
+import 'package:senior_launcher/ui/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 

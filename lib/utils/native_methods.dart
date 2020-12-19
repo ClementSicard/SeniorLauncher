@@ -2,7 +2,7 @@ import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NativeMethods {
-  final platform = MethodChannel('arjunsinh.xyz/elder_launcher');
+  final platform = MethodChannel('arjunsinh.xyz/senior_launcher');
 
   void launchContactsApp() {
     platform.invokeMethod('launchContactsApp');

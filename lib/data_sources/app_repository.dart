@@ -1,9 +1,9 @@
 import 'dart:typed_data';
 import 'package:device_apps/device_apps.dart';
-import 'package:elder_launcher/constants/keys.dart';
-import 'package:elder_launcher/models/interfaces/data_repository.dart';
-import 'package:elder_launcher/models/item.dart';
-import 'package:elder_launcher/utils/shared_prefs.dart';
+import 'package:senior_launcher/constants/keys.dart';
+import 'package:senior_launcher/models/interfaces/data_repository.dart';
+import 'package:senior_launcher/models/item.dart';
+import 'package:senior_launcher/utils/shared_prefs.dart';
 
 class AppRepository implements DataRepository {
   @override

@@ -12,9 +12,9 @@ Elder Launcher supports pinning favorite apps and contacts to the homescreen for
 
 ## Install
 
-<a href="https://play.google.com/store/apps/details?id=xyz.arjunsinh.elderlauncher"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" height="70"></a> <a href="https://apt.izzysoft.de/fdroid/index/apk/xyz.arjunsinh.elderlauncher"><img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" height="70"></a>
+<a href="https://play.google.com/store/apps/details?id=com.clementsicard.seniorlauncher"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" height="70"></a> <a href="https://apt.izzysoft.de/fdroid/index/apk/com.clementsicard.seniorlauncher"><img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" height="70"></a>
 
-Also available from [GitHub Releases](https://github.com/itsarjunsinh/elder_launcher/releases)
+Also available from [GitHub Releases](https://github.com/itsarjunsinh/senior_launcher/releases)
 ## Tech
 
 Elder Launcher is developed using [Flutter](flutter.dev).

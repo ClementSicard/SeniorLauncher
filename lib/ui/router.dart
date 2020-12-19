@@ -1,9 +1,9 @@
-import 'package:elder_launcher/constants/edit_mode.dart';
-import 'package:elder_launcher/constants/route_names.dart';
-import 'package:elder_launcher/ui/pages/app_drawer/app_drawer.dart';
-import 'package:elder_launcher/ui/pages/edit_page/edit_page.dart';
-import 'package:elder_launcher/ui/pages/home_page/home_page.dart';
-import 'package:elder_launcher/ui/pages/reorder_page/reorder_page.dart';
+import 'package:senior_launcher/constants/edit_mode.dart';
+import 'package:senior_launcher/constants/route_names.dart';
+import 'package:senior_launcher/ui/pages/app_drawer/app_drawer.dart';
+import 'package:senior_launcher/ui/pages/edit_page/edit_page.dart';
+import 'package:senior_launcher/ui/pages/home_page/home_page.dart';
+import 'package:senior_launcher/ui/pages/reorder_page/reorder_page.dart';
 import 'package:flutter/material.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {

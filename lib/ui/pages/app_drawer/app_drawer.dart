@@ -1,10 +1,10 @@
-import 'package:elder_launcher/constants/custom_functions.dart';
-import 'package:elder_launcher/models/app_model.dart';
-import 'package:elder_launcher/models/item.dart';
-import 'package:elder_launcher/generated/l10n.dart';
-import 'package:elder_launcher/ui/common/buttons.dart';
-import 'package:elder_launcher/ui/common/loading_widget.dart';
-import 'package:elder_launcher/ui/theme.dart';
+import 'package:senior_launcher/constants/custom_functions.dart';
+import 'package:senior_launcher/models/app_model.dart';
+import 'package:senior_launcher/models/item.dart';
+import 'package:senior_launcher/generated/l10n.dart';
+import 'package:senior_launcher/ui/common/buttons.dart';
+import 'package:senior_launcher/ui/common/loading_widget.dart';
+import 'package:senior_launcher/ui/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
