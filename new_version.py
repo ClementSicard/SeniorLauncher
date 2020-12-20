@@ -95,7 +95,7 @@ print("\n\n1. UPDATING pubspec.yaml\n_______________________\n\n")
 update_pubspec(version, 'pubspec.yaml')
 
 print("\n\n2. UPDATING CHECK IN constants.dart\n_______________________\n\n")
-update_checker(version, "/lib/utils/constants.dart")
+update_checker(version, "lib/utils/constants.dart")
 
 print("\n\n3. BUILDING APK FILE\n_______________________\n\n")
 os.system("flutter build apk")
@@ -105,7 +105,7 @@ upload_update_to_dropbox("SeniorLauncher.apk")
 
 print("\n\n5. UPDATING github.io\n_______________________\n\n")
 update_githubio(
-    version, "/Users/clementsicard/Dev/GitHub/AppInstaller/index.html")
+    version, "~/Dev/GitHub/AppInstaller/index.html")
 
 print("\n\n6. PUSHING CHANGES TO GITHUB REPOSITORY\n_______________________\n\n")
 os.system("git push")
