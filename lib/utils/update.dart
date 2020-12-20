@@ -117,7 +117,7 @@ class Update {
                     'RETOUR',
                     style: TextStyles.dialogAction,
                   ),
-                  onPressed: () {},
+                  onPressed: () => Navigator.pop(nContext),
                 ),
               ],
             );
