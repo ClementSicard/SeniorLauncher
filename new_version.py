@@ -37,7 +37,7 @@ def upload_update_to_dropbox(app_name):
     apk_path = path + "/build/app/outputs/apk/release/app-release.apk"
     apk = open(apk_path, "rb")
 
-    print("\nUploading new apk (version " + version + " to Dropbox ...")
+    print("\nUploading new apk (version " + version + ") to Dropbox ...")
     dbx.files_upload(apk.read(),
                      "/" + app_name, mode=WriteMode('overwrite'))
     print("Done !")
