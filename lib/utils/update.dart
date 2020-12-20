@@ -15,12 +15,12 @@ class Update {
     }
     http.Response response =
         await http.get('https://clementsicard.github.io/AppInstaller/');
-    await Fluttertoast.showToast(msg: 'HTTP reçu');
     final String resp = response.body;
-    int firstIndex = resp.indexOf('-->');
-    var resp2 = resp.substring(firstIndex + 3);
-    int secondIndex = firstIndex + 3 + resp2.indexOf('-->');
-    final String version = resp.substring(firstIndex + 8, secondIndex);
+    int index = resp.indexOf('-->');
+    var resp2 = resp.substring(index + 3);
+    int secIndex = index + 3 + resp2.indexOf('-->');
+    var version = resp.substring(index + 8, secIndex);
+    print(version);
     final String toDisplay =
         'Nouvelle version disponible! ($version)\nLa version actuelle est la ' +
             Constants.CURRENT_VERSION;

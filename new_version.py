@@ -13,9 +13,9 @@ def update_githubio(version, file_path):
     closing_idx = version_match.end(0)
     while f_content[closing_idx] != '-':
         closing_idx += 1
-    new_string = "<!--" + version
+    new_string = "\n<!--" + version
     new_content = f_content.replace(f_content[version_match.start(
-        0): closing_idx], new_string)
+        0) + 3: closing_idx], new_string)
     f.seek(0)
     f.truncate()
     f.write(new_content)
@@ -105,7 +105,7 @@ upload_update_to_dropbox("SeniorLauncher.apk")
 
 print("\n\n5. UPDATING github.io\n_______________________\n\n")
 update_githubio(
-    version, "~/Dev/GitHub/AppInstaller/index.html")
+    version, "/Users/clementsicard/Dev/GitHub/AppInstaller/index.html")
 
 print("\n\n6. PUSHING CHANGES TO GITHUB REPOSITORY\n_______________________\n\n")
 os.system("git push")
