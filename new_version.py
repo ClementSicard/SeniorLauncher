@@ -34,7 +34,7 @@ def upload_update_to_dropbox(app_name):
     token = parser["DROPBOX"]["token"]
 
     dbx = dropbox.Dropbox(token)
-    apk_path = path + "build/app/outputs/apk/release/app-release.apk"
+    apk_path = path + "/build/app/outputs/apk/release/app-release.apk"
     apk = open(apk_path, "rb")
 
     print("\nUploading new apk (version " + version + " to Dropbox ...")

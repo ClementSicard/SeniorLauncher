@@ -1,3 +1,5 @@
+import 'package:flutter_downloader/flutter_downloader.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:senior_launcher/data_sources/app_repository.dart';
 import 'package:senior_launcher/data_sources/contact_repository.dart';
 import 'package:senior_launcher/models/app_model.dart';
@@ -11,7 +13,15 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
-void main() => {runApp(MyApp())};
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  var status = await Permission.storage.status;
+  if (!status.isGranted) {
+    await Permission.storage.request();
+  }
+  await FlutterDownloader.initialize();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
