@@ -80,7 +80,7 @@ def update_checker(version, file_path):
     if f_content[version_match.end(
             0): closing_idx + 1] != "'" + version + "';'\n":
         os.system(
-            "git commit -am \"[Automatic commit - update bot] Updated home_page.dart to version " + version + "\"")
+            "git commit -am \"[Automatic commit - update bot] Updated constants to version " + version + "\"")
     else:
         print("Bizarre ce qu'il se passe")
 
@@ -94,8 +94,8 @@ os.chdir(path)
 print("\n\n1. UPDATING pubspec.yaml\n_______________________\n\n")
 update_pubspec(version, 'pubspec.yaml')
 
-print("\n\n2. UPDATING CHECK IN home_page.dart\n_______________________\n\n")
-update_checker(version, 'lib\\utils\\constants.dart')
+print("\n\n2. UPDATING CHECK IN constants.dart\n_______________________\n\n")
+update_checker(version, "/lib/utils/constants.dart")
 
 print("\n\n3. BUILDING APK FILE\n_______________________\n\n")
 os.system("flutter build apk")
