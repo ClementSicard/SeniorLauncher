@@ -90,7 +90,7 @@ class HomePage extends StatelessWidget {
                                       icon: const Icon(Icons.check),
                                       iconSize: 110,
                                       onPressed: () {
-                                        Navigator.pop(nContext);
+                                        Navigator.pop(context);
                                         Provider.of<ContactModel>(context,
                                                 listen: false)
                                             .callPhoneNumber(u.id);
@@ -100,9 +100,7 @@ class HomePage extends StatelessWidget {
                                     IconButton(
                                       icon: const Icon(Icons.clear),
                                       iconSize: 110,
-                                      onPressed: () {
-                                        Navigator.pop(nContext);
-                                      },
+                                      onPressed: () => Navigator.pop(context),
                                       color: Colors.red,
                                     ),
                                   ],

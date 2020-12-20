@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:provider/provider.dart';
 import 'package:senior_launcher/utils/constants.dart';
+import 'package:senior_launcher/utils/update.dart';
 
 Future CallDialog(BuildContext context, Item contact,
     {bool support = false, bool secureCall = false}) {
@@ -140,6 +141,35 @@ Future CallDialog(BuildContext context, Item contact,
               Navigator.pop(context);
               Provider.of<AppModel>(context, listen: false).launchApp(id);
             },
+            isDefaultAction: true,
+          ),
+        ),
+        Visibility(
+          visible: support,
+          child: CupertinoActionSheetAction(
+            child: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const <Widget>[
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                    child: Icon(
+                      MaterialCommunityIcons.update,
+                      color: Colors.black,
+                      size: 30,
+                    ),
+                  ),
+                  Text(
+                    'Mettre à jour',
+                    style: TextStyles.dialogActionMain,
+                  ),
+                ],
+              ),
+            ),
+            onPressed: () => Update.checkUpdateAndroid(context),
             isDefaultAction: true,
           ),
         ),
