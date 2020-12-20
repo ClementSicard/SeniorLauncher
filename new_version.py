@@ -31,10 +31,10 @@ def update_githubio(version, file_path):
 def upload_update_to_dropbox(app_name):
     parser = configparser.ConfigParser()
     parser.read('dropbox_credentials.ini')
-    token = parser.get('dropbox', 'token')
+    token = parser["DROPBOX"]["token"]
 
     dbx = dropbox.Dropbox(token)
-    apk_path = path + "\\build\\app\\outputs\\apk\\release\\app-release.apk"
+    apk_path = path + "build/app/outputs/apk/release/app-release.apk"
     apk = open(apk_path, "rb")
 
     print("\nUploading new apk (version " + version + " to Dropbox ...")
