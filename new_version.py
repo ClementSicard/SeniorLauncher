@@ -67,7 +67,7 @@ def update_pubspec(version, file_path):
 def update_checker(version, file_path):
     f = open(file_path, "r+")
     f_content = f.read()
-    version_match = re.search("String currentVersion = ", f_content)
+    version_match = re.search("static const CURRENT_VERSION = ", f_content)
     closing_idx = version_match.end(0)
     while f_content[closing_idx] != '\n':
         closing_idx += 1
