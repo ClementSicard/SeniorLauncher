@@ -38,30 +38,39 @@ class InfoActionWidget extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            RaisedButton(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(right: 8.0),
-                        child: Icon(
-                          buttonIcon,
-                          size: 35,
-                        ),
-                      ),
-                      Flexible(
-                        child: AutoSizeText(
-                          buttonLabel,
-                          style: TextStyles.actionButtonLabel,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ],
+            const SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: RaisedButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(40.0),
                   ),
-                ),
-                onPressed: buttonOnClickAction)
+                  color: Colors.redAccent[100],
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(right: 8.0),
+                          child: Icon(
+                            buttonIcon,
+                            color: Colors.white,
+                            size: 35,
+                          ),
+                        ),
+                        Flexible(
+                          child: AutoSizeText(
+                            buttonLabel,
+                            style: TextStyles.actionButtonLabel,
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  onPressed: buttonOnClickAction),
+            )
           ],
         ),
       ),

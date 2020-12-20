@@ -2,7 +2,6 @@ import 'package:provider/provider.dart';
 import 'package:senior_launcher/models/contact_model.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:senior_launcher/constants/edit_mode.dart';
-import 'package:senior_launcher/models/date_time_model.dart';
 import 'package:senior_launcher/generated/l10n.dart';
 import 'package:senior_launcher/models/item.dart';
 import 'package:senior_launcher/ui/pages/home_page/apps_tab.dart';
@@ -144,50 +143,53 @@ class HomePage extends StatelessWidget {
             children: <Widget>[
               DateWidget(),
               const SizedBox(height: 20),
-              TabBar(tabs: [
-                Tab(
-                  child: Center(
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        const Padding(
-                          padding: EdgeInsets.fromLTRB(0, 0, 4.0, 0),
-                          child: Icon(Icons.apps),
-                        ),
-                        Flexible(
-                          child: AutoSizeText(
-                            S.of(context).Apps,
-                            group: _appBarTextSizeGroup,
-                            maxLines: 1,
-                            style: const TextStyle(fontSize: 50),
+              TabBar(
+                tabs: [
+                  Tab(
+                    child: Center(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          const Padding(
+                            padding: EdgeInsets.fromLTRB(0, 0, 4.0, 0),
+                            child: Icon(Icons.apps),
                           ),
-                        ),
-                      ],
+                          Flexible(
+                            child: AutoSizeText(
+                              S.of(context).Apps,
+                              group: _appBarTextSizeGroup,
+                              maxLines: 1,
+                              style: const TextStyle(fontSize: 50),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Tab(
-                  child: Center(
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        const Padding(
-                          padding: EdgeInsets.fromLTRB(0, 0, 4.0, 0),
-                          child: Icon(Icons.people),
-                        ),
-                        Flexible(
-                          child: AutoSizeText(
-                            S.of(context).Contacts,
-                            group: _appBarTextSizeGroup,
-                            maxLines: 1,
-                            style: const TextStyle(fontSize: 50),
+                  Tab(
+                    child: Center(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          const Padding(
+                            padding: EdgeInsets.fromLTRB(0, 0, 4.0, 0),
+                            child: Icon(Icons.people),
                           ),
-                        )
-                      ],
+                          Flexible(
+                            child: AutoSizeText(
+                              S.of(context).Contacts,
+                              group: _appBarTextSizeGroup,
+                              maxLines: 1,
+                              style: const TextStyle(fontSize: 50),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ]),
+                ],
+                indicatorColor: Colors.transparent,
+              ),
             ],
           ),
         ),

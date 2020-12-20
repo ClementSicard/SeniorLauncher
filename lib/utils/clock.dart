@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:intl/intl.dart';
 import 'package:senior_launcher/ui/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,7 @@ class Clock extends StatefulWidget {
 
 class _ClockState extends State<Clock> {
   DateTime _dateTime = DateTime.now();
+  final NumberFormat formatter = NumberFormat('00');
 
   @override
   void initState() {
@@ -27,7 +29,7 @@ class _ClockState extends State<Clock> {
   Widget build(BuildContext context) {
     return Container(
       child: Text(
-        '${_dateTime.hour}:${_dateTime.minute}',
+        '${formatter.format(_dateTime.hour)}:${formatter.format(_dateTime.minute)}',
         style: TextStyles.headerTime,
       ),
     );
