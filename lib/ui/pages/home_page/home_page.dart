@@ -12,6 +12,7 @@ import 'package:senior_launcher/ui/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:senior_launcher/utils/constants.dart';
 import 'call_dialog.dart';
 
 class HomePage extends StatelessWidget {
@@ -42,8 +43,8 @@ class HomePage extends StatelessWidget {
             leading: IconButton(
               onPressed: () {
                 print('Assistance');
-                const contactClement = Item(
-                    '+33781781494', 'Appeler Clément à la rescousse 🚨', null);
+                const contactClement = Item(Constants.TEL_CLEMENT,
+                    'Appeler Clément à la rescousse 🚨', null);
                 CallDialog(context, contactClement, support: true);
               },
               icon: const Icon(

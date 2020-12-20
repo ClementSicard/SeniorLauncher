@@ -8,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:provider/provider.dart';
+import 'package:senior_launcher/utils/constants.dart';
 
 Future CallDialog(BuildContext context, Item contact,
     {bool support = false, bool secureCall = false}) {
@@ -110,7 +111,7 @@ Future CallDialog(BuildContext context, Item contact,
           ),
         ),
         Visibility(
-          visible: support || contact.id == '+33781781494',
+          visible: support || contact.id == Constants.TEL_CLEMENT,
           child: CupertinoActionSheetAction(
             child: Padding(
               padding: const EdgeInsets.all(4.0),
