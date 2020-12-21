@@ -23,8 +23,8 @@ def update_githubio(version, file_path):
     current_path = os.getcwd()
     os.chdir("/Users/clementsicard/Dev/GitHub/AppInstaller")
     os.system(
-        "git commit -am \"[Automatic commit - update bot] Updated index.html to version " + version + "\"")
-    os.system("git push")
+        "git commit -am \"[Automatic commit - update bot] Updated index.html to version " + version + "\" &> /dev/null")
+    os.system("git push &> /dev/null")
     os.chdir(current_path)
 
 
@@ -57,7 +57,7 @@ def update_pubspec(version, file_path):
     if f_content[version_match.end(
             0): closing_idx + 1] != version + '\n':
         os.system(
-            "git commit -am \"[Automatic commit - update bot] Updated pubspec to version " + version + "\"")
+            "git commit -am \"[Automatic commit - update bot] Updated pubspec to version " + version + "\" &> /dev/null")
     f.seek(0)
     f.truncate()
     f.write(new_content)
@@ -80,7 +80,7 @@ def update_checker(version, file_path):
     if f_content[version_match.end(
             0): closing_idx + 1] != "'" + version + "';'\n":
         os.system(
-            "git commit -am \"[Automatic commit - update bot] Updated constants to version " + version + "\"")
+            "git commit -am \"[Automatic commit - update bot] Updated constants to version " + version + "\" &> /dev/null")
     else:
         print("Bizarre ce qu'il se passe")
 
@@ -91,23 +91,23 @@ version = sys.argv[1]
 os.chdir(path)
 
 
-print("\n\n1. UPDATING pubspec.yaml\n_______________________\n\n")
+print("1. Updating 'pubspec.yaml' with new version")
 update_pubspec(version, 'pubspec.yaml')
 
-print("\n\n2. UPDATING CHECK IN constants.dart\n_______________________\n\n")
+print("2. Updating version in 'constants.dart'")
 update_checker(version, "lib/utils/constants.dart")
 
-print("\n\n3. BUILDING APK FILE\n_______________________\n\n")
-os.system("flutter build apk")
+print("3. Building .apk file")
+os.system("flutter build apk > /dev/null")
 
-print("\n\n4. UPLOADING FILE TO DROPBOX\n_______________________\n\n")
+print("4. Uploading .apk to Dropbox")
 upload_update_to_dropbox("SeniorLauncher.apk")
 
-print("\n\n5. UPDATING github.io\n_______________________\n\n")
+print("5. Updating 'github.io'")
 update_githubio(
     version, "/Users/clementsicard/Dev/GitHub/AppInstaller/index.html")
 
-print("\n\n6. PUSHING CHANGES TO GITHUB REPOSITORY\n_______________________\n\n")
-os.system("git push")
+print("6. Pushing changes to GitHub repository")
+os.system("git push &> /dev/null")
 
-print("Done!")
+print("\nDone!")
