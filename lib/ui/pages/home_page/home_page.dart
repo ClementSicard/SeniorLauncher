@@ -136,7 +136,7 @@ class HomePage extends StatelessWidget {
           child: Clock(),
         ),
         bottom: PreferredSize(
-          preferredSize: const Size(0, 90),
+          preferredSize: const Size(0, 110),
           child: Column(
             children: <Widget>[
               DateWidget(),

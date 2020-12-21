@@ -3,7 +3,6 @@ import 'package:senior_launcher/constants/route_names.dart';
 import 'package:senior_launcher/models/app_model.dart';
 import 'package:senior_launcher/models/item.dart';
 import 'package:senior_launcher/generated/l10n.dart';
-import 'package:senior_launcher/ui/common/buttons.dart';
 import 'package:senior_launcher/ui/common/loading_widget.dart';
 import 'package:senior_launcher/ui/pages/home_page/fav_grid_view.dart';
 import 'package:senior_launcher/ui/common/info_action_widget.dart';
@@ -55,10 +54,10 @@ class AppsTab extends StatelessWidget {
           ),
         ),
       ),
-      Align(
-        alignment: Alignment.bottomCenter,
-        child: PrimaryButton(S.of(context).btnAllApps, openAllApps),
-      ),
+      // Align(
+      //   alignment: Alignment.bottomCenter,
+      //   child: PrimaryButton(S.of(context).btnAllApps, openAllApps),
+      // ),
     ]);
   }
 }
