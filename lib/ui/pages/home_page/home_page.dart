@@ -7,12 +7,12 @@ import 'package:senior_launcher/models/item.dart';
 import 'package:senior_launcher/ui/pages/home_page/apps_tab.dart';
 import 'package:senior_launcher/ui/pages/home_page/contacts_tab.dart';
 import 'package:senior_launcher/ui/pages/home_page/edit_dialog.dart';
-import 'package:senior_launcher/ui/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:senior_launcher/utils/clock.dart';
 import 'package:senior_launcher/utils/constants.dart';
+import 'package:senior_launcher/ui/theme.dart';
 import 'package:senior_launcher/utils/date.dart';
 import 'call_dialog.dart';
 
