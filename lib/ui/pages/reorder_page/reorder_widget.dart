@@ -43,12 +43,6 @@ class ReorderableCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(25.0),
-      ),
-      margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 4),
-      color: Colors.grey[200],
-      elevation: 1,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListTile(

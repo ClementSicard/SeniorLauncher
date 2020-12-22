@@ -25,29 +25,37 @@ class MultiSelectWidget extends StatelessWidget {
         var item = _allItems[position];
         var isFav = editModel.isFav(position);
 
-        return CheckboxListTile(
-          key: Key(item.id),
-          title: Text(
-            item.name,
-            style: TextStyles.listTitle,
+        return Card(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SwitchListTile(
+              key: Key(item.id),
+              title: Text(
+                item.name,
+                style: TextStyles.listTitle,
+              ),
+              subtitle: showId
+                  ? Text(
+                      item.id,
+                      style: TextStyles.listSubtitle,
+                    )
+                  : null,
+              secondary: CustomCircleAvatar(item),
+              value: isFav,
+              onChanged: (bool isChecked) {
+                toggleFav(position);
+              },
+            ),
           ),
-          subtitle: showId
-              ? Text(
-                  item.id,
-                  style: TextStyles.listTitle,
-                )
-              : null,
-          secondary: CustomCircleAvatar(item),
-          value: isFav,
-          onChanged: (bool isChecked) {
-            toggleFav(position);
-          },
         );
       },
       separatorBuilder: (_, __) {
-        return const Divider(
-          thickness: Values.dividerThickness,
+        return const SizedBox(
+          height: 5,
         );
+        // return const Divider(
+        //   thickness: Values.dividerThickness,
+        // );
       },
     );
   }

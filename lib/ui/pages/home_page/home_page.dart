@@ -54,7 +54,7 @@ class HomePage extends StatelessWidget {
             child: IconButton(
               icon: const Text(
                 'SOS',
-                style: TextStyle(fontSize: 17),
+                style: TextStyle(fontSize: 13),
               ),
               onPressed: () => showCupertinoModalPopup(
                 context: context,

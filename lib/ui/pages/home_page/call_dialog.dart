@@ -15,7 +15,6 @@ Future CallDialog(BuildContext context, Item contact,
     {bool support = false, bool secureCall = false}) {
   return showCupertinoModalPopup(
     context: context,
-    filter: ImageFilter.blur(),
     builder: (context) => CupertinoActionSheet(
       title: Text(
         contact.name,
@@ -130,7 +129,7 @@ Future CallDialog(BuildContext context, Item contact,
                     ),
                   ),
                   Text(
-                    'Démarrer QuickSupport',
+                    'Contrôle à distance',
                     style: TextStyles.dialogActionMain,
                   ),
                 ],

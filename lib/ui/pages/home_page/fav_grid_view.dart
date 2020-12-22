@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:senior_launcher/constants/custom_functions.dart';
 import 'package:senior_launcher/models/item.dart';
+import 'package:senior_launcher/ui/colors.dart';
 import 'package:senior_launcher/ui/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:senior_launcher/utils/circle_avatar_custom.dart';
@@ -30,7 +31,6 @@ class FavGridView extends StatelessWidget {
           children: favItems.map(
             (item) {
               return Card(
-                color: Colors.grey[200],
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25.0),
                 ),
