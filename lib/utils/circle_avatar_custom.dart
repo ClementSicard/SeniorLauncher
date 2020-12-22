@@ -43,9 +43,6 @@ class CustomCircleAvatar extends StatelessWidget {
   }
 
   bool isNumeric(String s) {
-    if (s == null) {
-      return false;
-    }
-    return double.parse(s, (e) => null) != null;
+    return s != null ? double.parse(s, (e) => null) != null : false;
   }
 }
