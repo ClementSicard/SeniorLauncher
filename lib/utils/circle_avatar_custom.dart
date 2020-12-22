@@ -1,5 +1,6 @@
 import 'package:senior_launcher/models/item.dart';
 import 'package:flutter/material.dart';
+import 'package:senior_launcher/ui/colors.dart';
 
 class CustomCircleAvatar extends StatelessWidget {
   final Item item;
@@ -14,7 +15,10 @@ class CustomCircleAvatar extends StatelessWidget {
               backgroundImage: Image(
                 image: MemoryImage(item.icon),
               ).image,
-              backgroundColor: Colors.white,
+              backgroundColor:
+                  MediaQuery.of(context).platformBrightness == Brightness.dark
+                      ? seniorDarkGrey
+                      : Colors.white,
               radius: 26,
             ),
             backgroundColor: Colors.redAccent,
