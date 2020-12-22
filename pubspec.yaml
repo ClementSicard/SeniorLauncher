@@ -13,9 +13,9 @@ dependencies:
     sdk: flutter
   auto_size_text: ^2.1.0
   contacts_service: ^0.4.6
-  device_apps: ^1.2.0
+  device_apps: ^1.1.0
   flutter_downloader: ^1.5.2
-  flutter_icons: ^1.2.0
+  flutter_icons: ^1.1.0
   fluttertoast: ^7.1.6
   http: ^0.12.2
   intl: ^0.16.1
