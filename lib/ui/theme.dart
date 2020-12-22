@@ -13,7 +13,7 @@ var lightTheme = ThemeData(
       borderRadius: BorderRadius.circular(25.0),
     ),
     margin: const EdgeInsets.all(4.0),
-    elevation: 1,
+    elevation: 0,
   ),
 );
 
@@ -30,7 +30,7 @@ var darkTheme = ThemeData(
       borderRadius: BorderRadius.circular(25.0),
     ),
     margin: const EdgeInsets.all(4),
-    elevation: 1,
+    elevation: 0,
   ),
 );
 

@@ -88,7 +88,7 @@ class HomePage extends StatelessWidget {
                                   actions: [
                                     IconButton(
                                       icon: const Icon(Icons.check),
-                                      iconSize: 110,
+                                      iconSize: 80,
                                       onPressed: () {
                                         Navigator.pop(context);
                                         Provider.of<ContactModel>(context,
@@ -99,7 +99,7 @@ class HomePage extends StatelessWidget {
                                     ),
                                     IconButton(
                                       icon: const Icon(Icons.clear),
-                                      iconSize: 110,
+                                      iconSize: 80,
                                       onPressed: () => Navigator.pop(context),
                                       color: Colors.red,
                                     ),

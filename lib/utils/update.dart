@@ -51,7 +51,7 @@ class Update {
               actions: [
                 IconButton(
                   icon: const Icon(Icons.check),
-                  iconSize: 110,
+                  iconSize: 80,
                   onPressed: () async {
                     const url =
                         'https://dl.dropboxusercontent.com/s/1uzf6uwalzjym4a/SeniorLauncher.apk';
@@ -85,7 +85,7 @@ class Update {
                 ),
                 IconButton(
                   icon: const Icon(Icons.clear),
-                  iconSize: 110,
+                  iconSize: 80,
                   onPressed: () => Navigator.pop(nContext),
                   color: Colors.red,
                 ),
