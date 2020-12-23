@@ -25,12 +25,14 @@ class CustomCircleAvatar extends StatelessWidget {
             radius: 29,
           )
         : item.icon.isNotEmpty
-            ? CircleAvatar(
-                backgroundImage: Image(
-                  image: MemoryImage(item.icon),
-                ).image,
-                backgroundColor: Colors.white,
-                radius: 29,
+            ? Container(
+                height: 58,
+                child: ClipRRect(
+                  child: Image(
+                    image: MemoryImage(item.icon),
+                  ),
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
               )
             : const CircleAvatar(
                 child: Icon(

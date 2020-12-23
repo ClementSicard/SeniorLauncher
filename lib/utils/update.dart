@@ -43,7 +43,7 @@ class Update {
                 style: TextStyles.dialogTitle,
                 textAlign: TextAlign.center,
               ),
-              content: Text(
+              content: const Text(
                 'Mettre à jour ?',
                 textAlign: TextAlign.center,
                 style: TextStyles.dialogActionMain,
