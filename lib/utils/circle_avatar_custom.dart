@@ -31,7 +31,7 @@ class CustomCircleAvatar extends StatelessWidget {
                   child: Image(
                     image: MemoryImage(item.icon),
                   ),
-                  borderRadius: BorderRadius.circular(30.0),
+                  borderRadius: BorderRadius.circular(60.0),
                 ),
               )
             : const CircleAvatar(
