@@ -105,12 +105,15 @@ class Update {
                   Radius.circular(20.0),
                 ),
               ),
-              title: Text(
+              title: const Text(
                 'Pas de nouvelle mise à jour disponible',
                 style: TextStyles.dialogTitle,
                 textAlign: TextAlign.center,
               ),
-              content: null,
+              content: const Text(
+                'Version: ${Constants.CURRENT_VERSION}',
+                style: TextStyles.infoMessage,
+              ),
               actions: [
                 FlatButton(
                   child: const Text(

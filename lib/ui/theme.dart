@@ -40,7 +40,7 @@ class TextStyles {
   static const listSubtitle = TextStyle(fontSize: 17);
   static const headerTime = TextStyle(fontSize: 27);
   static const headerDate = TextStyle(color: Colors.white, fontSize: 21);
-  static const infoMessage = TextStyle(fontSize: 21);
+  static const infoMessage = TextStyle(fontSize: 19);
   static const actionButtonLabel = TextStyle(fontSize: 21, color: Colors.white);
   static const primaryButtonLabel =
       TextStyle(color: Colors.white, fontSize: 45, height: 1);
