@@ -11,6 +11,11 @@ class Dialogs {
         return WillPopScope(
           onWillPop: () async => false,
           child: SimpleDialog(
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(20.0),
+              ),
+            ),
             key: key,
             backgroundColor: CustomColors.seniorGrey,
             children: <Widget>[

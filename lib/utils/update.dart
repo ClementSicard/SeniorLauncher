@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:senior_launcher/utils/constants.dart';
+import 'package:senior_launcher/utils/dialogs.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
 
@@ -59,6 +60,10 @@ class Update {
                       const downloadFolderPath =
                           '/storage/emulated/0/Download/';
                       var appName = 'SeniorLauncher_$version.apk';
+                      await Fluttertoast.showToast(
+                        msg: 'Téléchargement de la mise à jour...',
+                        toastLength: Toast.LENGTH_LONG,
+                      );
                       final taskId = await FlutterDownloader.enqueue(
                         url: url,
                         fileName: appName,
