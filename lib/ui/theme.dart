@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 var lightTheme = ThemeData(
   primaryColor: Colors.red[400],
   accentColor: Colors.redAccent[100],
-  backgroundColor: seniorWhite,
-  cardColor: seniorGrey,
+  backgroundColor: CustomColors.seniorWhite,
+  cardColor: CustomColors.seniorGrey,
   textTheme: Typography.blackMountainView,
   cardTheme: CardTheme(
-    color: seniorGrey,
+    color: CustomColors.seniorGrey,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(25.0),
     ),
@@ -20,12 +20,12 @@ var lightTheme = ThemeData(
 var darkTheme = ThemeData(
   primaryColor: Colors.red[400],
   accentColor: Colors.redAccent[100],
-  backgroundColor: seniorBlack,
-  cardColor: seniorDarkGrey,
-  dividerTheme: DividerThemeData(color: seniorGrey),
+  backgroundColor: CustomColors.seniorBlack,
+  cardColor: CustomColors.seniorDarkGrey,
+  dividerTheme: DividerThemeData(color: CustomColors.seniorGrey),
   textTheme: Typography.whiteMountainView,
   cardTheme: CardTheme(
-    color: seniorDarkGrey,
+    color: CustomColors.seniorDarkGrey,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(25.0),
     ),

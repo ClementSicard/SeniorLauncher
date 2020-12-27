@@ -17,7 +17,7 @@ class CustomCircleAvatar extends StatelessWidget {
               ).image,
               backgroundColor:
                   MediaQuery.of(context).platformBrightness == Brightness.dark
-                      ? seniorDarkGrey
+                      ? CustomColors.seniorDarkGrey
                       : Colors.white,
               radius: 26,
             ),

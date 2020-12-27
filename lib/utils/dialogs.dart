@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:senior_launcher/ui/colors.dart';
 
 class Dialogs {
   static Future<void> showLoadingDialog(
@@ -11,7 +12,7 @@ class Dialogs {
           onWillPop: () async => false,
           child: SimpleDialog(
             key: key,
-            backgroundColor: Colors.black54,
+            backgroundColor: CustomColors.seniorGrey,
             children: <Widget>[
               Center(
                 child: Column(
@@ -19,10 +20,6 @@ class Dialogs {
                     CircularProgressIndicator(),
                     SizedBox(
                       height: 10,
-                    ),
-                    Text(
-                      'Please Wait....',
-                      style: TextStyle(color: Colors.blueAccent),
                     ),
                   ],
                 ),
