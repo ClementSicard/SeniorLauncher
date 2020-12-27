@@ -69,7 +69,7 @@ class Update {
                       try {
                         bool success = false;
                         while (!success) {
-                          await Future.delayed(Duration(seconds: 2));
+                          await Future.delayed(const Duration(seconds: 2));
                           success =
                               await FlutterDownloader.open(taskId: taskId);
                         }
