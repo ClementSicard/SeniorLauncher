@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:senior_launcher/utils/constants.dart';
-import 'package:senior_launcher/utils/dialogs.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
 
@@ -134,6 +133,16 @@ class Update {
       }
     } catch (_) {
       await Fluttertoast.showToast(msg: 'Erreur pendant la mise à jour');
+    }
+  }
+
+  static void launchManual(BuildContext context) async {
+    const url =
+        'https://drive.google.com/file/d/1cvWyqcxeO9f9ppLecnCNPcDs2Utl_0Yv/view?usp=sharing';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
     }
   }
 }

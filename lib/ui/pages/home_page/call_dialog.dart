@@ -156,6 +156,35 @@ Future CallDialog(BuildContext context, Item contact,
                   Padding(
                     padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
                     child: Icon(
+                      MaterialCommunityIcons.book,
+                      color: Colors.black,
+                      size: 30,
+                    ),
+                  ),
+                  Text(
+                    "Mode d'emploi",
+                    style: TextStyles.dialogActionMain,
+                  ),
+                ],
+              ),
+            ),
+            onPressed: () => Update.checkUpdateAndroid(context),
+            isDefaultAction: true,
+          ),
+        ),
+        Visibility(
+          visible: support,
+          child: CupertinoActionSheetAction(
+            child: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const <Widget>[
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                    child: Icon(
                       MaterialCommunityIcons.update,
                       color: Colors.black,
                       size: 30,
