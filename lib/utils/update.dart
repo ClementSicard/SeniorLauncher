@@ -1,3 +1,4 @@
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:senior_launcher/ui/theme.dart';
 import 'package:flutter/material.dart';
@@ -140,9 +141,23 @@ class Update {
     const url =
         'https://drive.google.com/file/d/1cvWyqcxeO9f9ppLecnCNPcDs2Utl_0Yv/view?usp=sharing';
     if (await canLaunch(url)) {
-      await launch(url);
+      await Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => WebviewScaffold(
+            initialChild: Center(
+              child: CircularProgressIndicator(),
+            ),
+            url: url,
+            appBar: AppBar(title: const Text("Mode d'emploi")),
+          ),
+        ),
+      );
     } else {
-      throw 'Could not launch $url';
+      Scaffold.of(context).showSnackBar(
+        SnackBar(
+          content: const Text('URL $url can not be launched'),
+        ),
+      );
     }
   }
 }
