@@ -63,6 +63,7 @@ class HomePage extends StatelessWidget {
                     Item('15', 'SAMU', null),
                     Item('17', 'POLICE', null),
                     Item('18', 'POMPIERS', null),
+                    Item('114', 'URGENCES MALENTENDANTS', null),
                     Item('112', 'GENERAL', null),
                   ];
                   return CupertinoActionSheet(

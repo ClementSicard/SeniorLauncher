@@ -12,206 +12,209 @@ import 'package:senior_launcher/utils/constants.dart';
 import 'package:senior_launcher/utils/update.dart';
 
 Future CallDialog(BuildContext context, Item contact,
-    {bool support = false, bool secureCall = false}) {
-  return showCupertinoModalPopup(
-    context: context,
-    builder: (context) => CupertinoActionSheet(
-      title: Text(
-        contact.name,
-        style: TextStyles.dialogTitle,
-      ),
-      actions: [
-        CupertinoActionSheetAction(
-          child: Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 4, 0),
-                  child: const Icon(
-                    Icons.call,
-                    color: Colors.redAccent,
-                    size: 30,
+    {bool support = false, bool secureCall = false}) async {
+  return contact.id != Constants.MESSAGERIE
+      ? showCupertinoModalPopup(
+          context: context,
+          builder: (context) => CupertinoActionSheet(
+            title: Text(
+              contact.name,
+              style: TextStyles.dialogTitle,
+            ),
+            actions: [
+              CupertinoActionSheetAction(
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 4, 0),
+                        child: const Icon(
+                          Icons.call,
+                          color: Colors.redAccent,
+                          size: 30,
+                        ),
+                      ),
+                      Text(
+                        S.of(context).dlgCall,
+                        style: TextStyles.dialogActionMain,
+                      ),
+                    ],
                   ),
                 ),
-                Text(
-                  S.of(context).dlgCall,
-                  style: TextStyles.dialogActionMain,
+                onPressed: () => {
+                  Navigator.pop(context),
+                  Provider.of<ContactModel>(context, listen: false)
+                      .callPhoneNumber(contact.id)
+                },
+                isDefaultAction: true,
+              ),
+              CupertinoActionSheetAction(
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const <Widget>[
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                        child: Icon(
+                          Icons.sms,
+                          color: Colors.blueAccent,
+                          size: 30,
+                        ),
+                      ),
+                      Text(
+                        'Envoyer un SMS',
+                        style: TextStyles.dialogActionMain,
+                      ),
+                    ],
+                  ),
                 ),
-              ],
-            ),
-          ),
-          onPressed: () => {
-            Navigator.pop(context),
-            Provider.of<ContactModel>(context, listen: false)
-                .callPhoneNumber(contact.id)
-          },
-          isDefaultAction: true,
-        ),
-        CupertinoActionSheetAction(
-          child: Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const <Widget>[
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
-                  child: Icon(
-                    Icons.sms,
-                    color: Colors.blueAccent,
-                    size: 30,
+                onPressed: () => {
+                  Navigator.pop(context),
+                  Provider.of<ContactModel>(context, listen: false)
+                      .sendSMSPhoneNumber(contact.id),
+                },
+                isDefaultAction: true,
+              ),
+              Visibility(
+                visible: contact.id != '',
+                child: CupertinoActionSheetAction(
+                  child: Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: const <Widget>[
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                          child: Icon(
+                            MaterialCommunityIcons.whatsapp,
+                            color: Colors.green,
+                            size: 30,
+                          ),
+                        ),
+                        Text(
+                          'Contacter sur WhatsApp',
+                          style: TextStyles.dialogActionMain,
+                        ),
+                      ],
+                    ),
                   ),
+                  onPressed: () => {
+                    Navigator.pop(context),
+                    Provider.of<ContactModel>(context, listen: false)
+                        .goToWhatsAppConv(contact.id)
+                  },
+                  isDefaultAction: true,
                 ),
-                Text(
-                  'Envoyer un SMS',
-                  style: TextStyles.dialogActionMain,
+              ),
+              Visibility(
+                visible: support || contact.id == Constants.TEL_CLEMENT,
+                child: CupertinoActionSheetAction(
+                  child: Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const <Widget>[
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                          child: Icon(
+                            MaterialCommunityIcons.teamviewer,
+                            color: Colors.blueAccent,
+                            size: 30,
+                          ),
+                        ),
+                        Text(
+                          'Contrôle à distance',
+                          style: TextStyles.dialogActionMain,
+                        ),
+                      ],
+                    ),
+                  ),
+                  onPressed: () {
+                    final String id = 'com.teamviewer.quicksupport.market';
+                    Navigator.pop(context);
+                    Provider.of<AppModel>(context, listen: false).launchApp(id);
+                  },
+                  isDefaultAction: true,
                 ),
-              ],
-            ),
-          ),
-          onPressed: () => {
-            Navigator.pop(context),
-            Provider.of<ContactModel>(context, listen: false)
-                .sendSMSPhoneNumber(contact.id),
-          },
-          isDefaultAction: true,
-        ),
-        Visibility(
-          visible: contact.id != '',
-          child: CupertinoActionSheetAction(
-            child: Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: const <Widget>[
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
-                    child: Icon(
-                      MaterialCommunityIcons.whatsapp,
-                      color: Colors.green,
-                      size: 30,
+              ),
+              Visibility(
+                visible: support,
+                child: CupertinoActionSheetAction(
+                  child: Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const <Widget>[
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                          child: Icon(
+                            MaterialCommunityIcons.book_open,
+                            color: Colors.brown,
+                            size: 30,
+                          ),
+                        ),
+                        Text(
+                          "Mode d'emploi",
+                          style: TextStyles.dialogActionMain,
+                        ),
+                      ],
                     ),
                   ),
-                  Text(
-                    'Contacter sur WhatsApp',
-                    style: TextStyles.dialogActionMain,
-                  ),
-                ],
+                  onPressed: () => Update.launchManual(context),
+                  isDefaultAction: true,
+                ),
               ),
-            ),
-            onPressed: () => {
-              Navigator.pop(context),
-              Provider.of<ContactModel>(context, listen: false)
-                  .goToWhatsAppConv(contact.id)
-            },
-            isDefaultAction: true,
-          ),
-        ),
-        Visibility(
-          visible: support || contact.id == Constants.TEL_CLEMENT,
-          child: CupertinoActionSheetAction(
-            child: Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
-                    child: Icon(
-                      MaterialCommunityIcons.teamviewer,
-                      color: Colors.blueAccent,
-                      size: 30,
+              Visibility(
+                visible: support,
+                child: CupertinoActionSheetAction(
+                  child: Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const <Widget>[
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                          child: Icon(
+                            MaterialCommunityIcons.update,
+                            color: Colors.black,
+                            size: 30,
+                          ),
+                        ),
+                        Text(
+                          'Mettre à jour',
+                          style: TextStyles.dialogActionMain,
+                        ),
+                      ],
                     ),
                   ),
-                  Text(
-                    'Contrôle à distance',
-                    style: TextStyles.dialogActionMain,
-                  ),
-                ],
+                  onPressed: () => Update.checkUpdateAndroid(context),
+                  isDefaultAction: true,
+                ),
               ),
-            ),
-            onPressed: () {
-              final String id = 'com.teamviewer.quicksupport.market';
-              Navigator.pop(context);
-              Provider.of<AppModel>(context, listen: false).launchApp(id);
-            },
-            isDefaultAction: true,
-          ),
-        ),
-        Visibility(
-          visible: support,
-          child: CupertinoActionSheetAction(
-            child: Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
-                    child: Icon(
-                      MaterialCommunityIcons.book_open,
-                      color: Colors.brown,
-                      size: 30,
-                    ),
-                  ),
-                  Text(
-                    "Mode d'emploi",
-                    style: TextStyles.dialogActionMain,
-                  ),
-                ],
+            ],
+            cancelButton: CupertinoActionSheetAction(
+              child: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  S.of(context).dlgCancel.toUpperCase(),
+                  style: const TextStyle(color: Colors.red),
+                ),
               ),
+              onPressed: () => Navigator.pop(context),
             ),
-            onPressed: () => Update.launchManual(context),
-            isDefaultAction: true,
           ),
-        ),
-        Visibility(
-          visible: support,
-          child: CupertinoActionSheetAction(
-            child: Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
-                    child: Icon(
-                      MaterialCommunityIcons.update,
-                      color: Colors.black,
-                      size: 30,
-                    ),
-                  ),
-                  Text(
-                    'Mettre à jour',
-                    style: TextStyles.dialogActionMain,
-                  ),
-                ],
-              ),
-            ),
-            onPressed: () => Update.checkUpdateAndroid(context),
-            isDefaultAction: true,
-          ),
-        ),
-      ],
-      cancelButton: CupertinoActionSheetAction(
-        child: Padding(
-          padding: const EdgeInsets.all(4.0),
-          child: Text(
-            S.of(context).dlgCancel.toUpperCase(),
-            style: const TextStyle(color: Colors.red),
-          ),
-        ),
-        onPressed: () => Navigator.pop(context),
-      ),
-    ),
-  );
+        )
+      : await Provider.of<ContactModel>(context, listen: false)
+          .callPhoneNumber(contact.id);
 }
