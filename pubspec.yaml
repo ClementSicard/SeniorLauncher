@@ -1,7 +1,7 @@
 name: senior_launcher
 description: A lightweight launcher for seniors.
 
-version: 1.4.0
+version: 1.5.0
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
